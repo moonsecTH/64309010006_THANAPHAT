@@ -119,9 +119,19 @@ for(i=0;i<data.length;i++){
     }
     console.log(data[i].FullName,"มีรายได้สุทธิต่อปี =",sum04,"บาท","ต้องจ่ายภาษี",sum06,"บาท","ได้โบนัส",sum01);
 }
-console.log("ผลประเมิน A")
+
+console.log("==========================================================================================================\n")
+console.log("พนักงานแผนก ไอที")
 for(i=0;i<data.length;i++){
-    if(data[i].Level=="A"){
+    if(data[i].Department=="ไอที"){
+        console.log(data[i].FullName,"ภาษีที่ต้องจ่าย",sum06);
+    }
+}
+console.log("==========================================================================================================\n")
+
+console.log("ผลประเมิน S")
+for(i=0;i<data.length;i++){
+    if(data[i].Level=="S"){
         console.log(data[i].FullName,"ผลประเมิน",data[i].Level);
     }
 }

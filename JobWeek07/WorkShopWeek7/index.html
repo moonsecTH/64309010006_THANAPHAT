@@ -10,8 +10,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
+
+    <div class="container" id="display">
+
+    
+
+    </div>
+
         <script>
+
+
             let xhttp = new XMLHttpRequest();
+            xhttp.open("GET",'http://localhost:3000/book');
+            xhttp.send();
+            xhttp.onload = function(){
+                let obj = JSON.parse(this.responseText);
+                let temp = '';
+                for(i=0; i<obj.length; i++){
+                    console.log(obj[i].title)
+                    temp += '<tr><td>'+obj[i].title+'</td></tr>'
+                }
+                document.getElementById('display').innerHTML = '<table class="table">'+temp+'</table>'
+            }
         </script>
       
     <!-- Optional JavaScript -->

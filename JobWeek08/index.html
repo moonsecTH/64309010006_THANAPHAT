@@ -8,26 +8,45 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
+    <style>
+      .title{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+      }
+      .poster{
+        width: 300px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  
   </head>
-  <body>
+  <body onload="getAjax()">
 
-    <div class="table-responsive" id="display">
+    <div class="table-responsive" id="display"> </div>
 
-    
-
+    <div class="container">
+      <button class="btn" onclick="prev()">ก่อนหน้า</button>
+      <button class="btn" onclick="next()">ถัดไป</button>
     </div>
 
         <script>
 
 
             let xhttp = new XMLHttpRequest();
+            let i = 0;
+           
+            function getAjax(){
             xhttp.open("GET",'http://localhost:3000/data');
             xhttp.send();
             xhttp.onload = function(){
                 let obj = JSON.parse(this.responseText);
+                
                 let temp = '';
-                for(i=0; i<obj.length; i++){
-                    console.log(obj[i].title)
+
                     temp += '<thead>'
                         + '<tr>'
 
@@ -71,21 +90,41 @@
                             
                         + '<td>' + obj[i].ID + '</td>'
 
-                        + '<td width="12%" style="text-align:center;">' + obj[i].title + '</td>'
+                        + '<td>' + obj[i].Title + '</td>'
 
-                        + '<td>' + obj[i].ISBN + '</td>' 
+                        + '<td>' + obj[i].Content + '</td>' 
 
-                        + '<td width="45%" style="text-align:justify;">' + obj[i].description + '</td>'
+                        + '<td>' + obj[i].Date + '</td>'
 
-                        + '<td width="15%" style="text-align:center;">' + obj[i].author + '</td>' 
+                        + '<td>' + obj[i].Season + '</td>' 
                         
-                        + '<td>' + obj[i].year + '</td>'
+                        + '<td>' + obj[i].Chapter + '</td>'
 
-                        + '<td>' + obj[i].price + '</td>' + '<td><img src="Picture/' + obj[i].Poster + '" width="250px"></td>'
+                        + '<td>' + obj[i].Author + '</td>' + '<td><img src="Picture/' + obj[i].Poster + '" width="250px"></td>'
 
-                        + '</tr>'
-                }
+                        + '</tr>' 
+                        
+                        + '<h1 class="title">'+obj[i].Title+'</h1>'
+
+                        + '<img class="poster" src="Picture/' + obj[i].Poster + '">'
+
                 document.getElementById('display').innerHTML = '<table class="table table-dark">'+temp+'</table>'
+            }
+            }
+            
+
+            function next() {
+              console.log(i);
+              i++;
+              getAjax();
+            }
+
+            function prev() {
+              i--;
+              if(i < 0){
+                i=0;
+              }
+              getAjax();
             }
         </script>
       

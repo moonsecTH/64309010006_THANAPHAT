@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  
+<style>
+    .movietitle{
+        text-align: center;
+    }
+    .poster{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 45%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .trailler{
+        width: 50%;
+        height: 50%;
+    }
+
+    .trailler{
+        padding-top: 20px;
+        width: 75%;
+    }
+
+    #test1{
+        text-align: center;
+        padding-top: 20px;
+        padding-right: 30px;
+    }
+    
+    .button{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+        
+    }
+
+    #btn123{
+        font-size: 1.25rem;
+        width: 30%;
+        margin-left: 1%;
+    }
+
+    #review{
+        text-align: justify;
+    }
+
+    #title_trailler{
+        font-size: 2.3rem;
+    }
+
+    #title_review{
+        font-size: 2.3rem;
+    }
+    
+    #testrow .col-2{
+        text-align: center;
+    }
+
+    #text1{
+        background-color: #353535;
+        border-color: #353535;
+        color: white;
+        opacity: 100%;
+        font-size: 0.9rem;
+    }
+
+    #text2{
+        background-color: #F0EE72;
+        border-color: #F0EE72;
+        color: black;
+        opacity: 100%;
+        font-size: 0.9rem;
+    }
+
+    #abc{
+        width: 99%;
+    }
+</style>
+
+  </head>
+  <body onload="getAjax()">
+
+    
+
+    <div class="button">
+        <button class="btn btn-primary" id="btn123" onclick="prev()">ก่อนหน้า</button>
+        <button class="btn btn-primary" id="btn123" onclick="next()">ถัดไป</button>
+
+        <button class="btn btn-primary" id="btn123" onclick="next()">AddMovie</button>
+    </div>
+
+    
+
+
+
+<div class="content" id="display"></div>
+
+
+
+<script>
+    let xhttp = new XMLHttpRequest();
+    let i = 0;
+       
+    function getAjax(){
+        xhttp.open("GET",'http://localhost:3000/movieReview');
+        xhttp.send();
+        xhttp.onload = function(){
+            let obj = JSON.parse(this.responseText);
+            test = obj.length
+            
+            let temp = '';
+
+            temp += ''
+
+            +'<div class="row" id="abc">'
+
+            + '<hr>'
+
+            +   '<div class="col-12"> <h1 class="movietitle">'+obj[i].movieName+'</h1> </div>'
+
+            + '<hr>'
+
+            +   '<div class="col-6">'
+                
+            +   '<img class="poster" src=' + obj[i].picture + '>'
+
+                    +'<div class="row" id="testrow">'
+                            +'<div class="col-2">  <h1 class="btn disabled" id="text1">เนื้อเรื่อง '+obj[i].review.score.screenPlay+'</h1> </div>'
+                            +'<div class="col-2">  <h1 class="btn disabled" id="text1">การดำเนินเรื่อง '+obj[i].review.score.playing+'</h1> </div>'
+                            +'<div class="col-2">  <h1 class="btn disabled" id="text1">ดนตรี '+obj[i].review.score.music+'</h1> </div>'
+                            +'<div class="col-2">  <h1 class="btn disabled" id="text1">นักแสดง '+obj[i].review.score.actorSkills+'</h1> </div>'
+                            +'<div class="col-2">  <h1 class="btn disabled" id="text1">กราฟฟิก '+obj[i].review.score.graphics+'</h1> </div>'
+                            +'<div class="col-2">  <h1 class="btn disabled" id="text1">เฉลี่ย '+obj[i].review.score.average+'</h1> </div>'
+                    +'</div>'
+                
+            +    '</div>'
+
+            +   '<div class="col-6" id="test1">'
+
+                    +'<div class="row">'
+                        +'<div class="col-4">  <h5 class="btn disabled" id="text2">ความยาวหนัง '+obj[i].movieLength+' นาที</h5> </div>'
+                        +'<div class="col-4">  <h5 class="btn disabled" id="text2">ผู้กำกับ '+obj[i].director+'</h5> </div>'
+                        +'<div class="col-4">  <h5 class="btn disabled" id="text2">หมวดหมู่ '+obj[i].category+'</h5> </div>'
+                    +'</div>'
+
+                    + '<br>'
+
+                    +'<h2 id="title_trailler">ตัวอย่างหนัง</h2>'
+
+                    +'<iframe class="trailler" src='+obj[i].trailer+' title="YouTube video player" frameborder="0" ></iframe>'
+                    
+                    + '<hr>'
+
+                    +'<h2 id="title_review">เนื้อเรื่องย่อ</h2>'
+
+                    +'<p id="review">'+obj[i].review.review+'</p>'
+
+                    
+                +'</div>'
+                 
+           
+
+            +'</div>'
+
+            document.getElementById('display').innerHTML = temp
+        }
+    }
+    function next() {
+          i++;
+          if(i > test-1){
+            i=0;
+          }
+          getAjax();
+        }
+
+        function prev() {
+          i--;
+          if(i < 0){
+            i=test-1;
+          }
+          getAjax();
+        }
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -118,15 +118,11 @@
                 "id":'',
                 "Title": document.forms['Form']['Title'].value,
                 "poster": document.forms['Form']['poster'].value,
-                "data": {
-                    "content": document.forms['Form']['content'].value,
-                    "TEST": {
-                        "Date": document.forms['Form']['Date'].value,
-                        "Season": document.forms['Form']['Season'].value,
-                        "Chapter": document.forms['Form']['Chapter'].value,
-                        "Link": document.forms['Form']['Link'].value
-                    }
-                }
+                "content": document.forms['Form']['content'].value,
+                "Date": document.forms['Form']['Date'].value,
+                "Season": document.forms['Form']['Season'].value,
+                "Chapter": document.forms['Form']['Chapter'].value,
+                "Link": document.forms['Form']['Link'].value
             }
             console.log(obj)
             let text = JSON.stringify(obj);

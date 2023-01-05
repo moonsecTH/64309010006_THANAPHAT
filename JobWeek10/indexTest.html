@@ -18,7 +18,8 @@
     .poster{
         padding-top: 20px;
         padding-bottom: 20px;
-        width: 300px;
+        width: 350px;
+        height: 350px;
     }
     .trailler{
         width: 50%;
@@ -47,6 +48,19 @@
         font-size: 1.25rem;
         width: 30%;
         margin-left: 1%;
+    }
+
+    #btn321{
+        font-size: 1.25rem;
+        width: 30%;
+        margin-left: 1%;
+        background-color: #FA4747;
+        border-color: #FA4747;
+    }
+
+    #btn321:hover{
+        background-color: #FF3131;
+        border-color: #FF3131;
     }
 
     #review{
@@ -160,6 +174,10 @@
                     +'<h2 id="title_review">เนื้อเรื่องย่อ</h2>'
 
                     +'<p id="review">'+obj[i].review.content+'</p>'
+
+                    + '<hr>'
+
+                    + '<a class="btn btn-primary" href='+obj[i].review.TEST.Link+' id="btn321" target="_blank">กดเพื่อดูอนิเมะ</a>'
 
                     
                 +'</div>'

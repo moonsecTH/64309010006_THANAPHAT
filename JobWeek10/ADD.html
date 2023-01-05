@@ -26,7 +26,7 @@
         }
 
         #btn123 {
-            margin-top: 5%;
+            margin-top: 2.5%;
             font-size: 2.5rem;
             padding-left: 40%;
             padding-right: 40%;
@@ -60,13 +60,13 @@
         <form class="myForm" id="Form">
             <div class="row">
                 <div class="col-12" id="box01">
-                    <label id="text">ชื่อเรื่อง</label>
+                    <label id="text" style="font-size: 1.5rem;">ชื่อเรื่อง</label>
                     <input type="text" id="Title" class="form-control" style="background-color: #3B3B3B; color: white;">
                 </div>
     
     
                 <div class="col-12" id="box01">
-                    <label id="text">เรื่องย่อ</label>
+                    <label id="text" style="font-size: 1.5rem;">เรื่องย่อ</label>
                     <textarea type="text" rows="3" id="content" class="form-control"
                         style="background-color: #3B3B3B; color: white;"></textarea>
                 </div>
@@ -90,6 +90,11 @@
                 <div class="col-12" id="box01">
                     <label id="text">URL รูปภาพ</label>
                     <input type="text" id="poster" class="form-control" style="background-color: #3B3B3B; color: white;">
+                </div>
+
+                <div class="col-12" id="box01">
+                    <label id="text">ลิงค์รับชม</label>
+                    <input type="text" id="Link" class="form-control" style="background-color: #3B3B3B; color: white;">
                 </div>
     
     
@@ -118,7 +123,8 @@
                     "TEST": {
                         "Date": document.forms['Form']['Date'].value,
                         "Season": document.forms['Form']['Season'].value,
-                        "Chapter": document.forms['Form']['Chapter'].value
+                        "Chapter": document.forms['Form']['Chapter'].value,
+                        "Link": document.forms['Form']['Link'].value
                     }
                 }
             }

@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+    }
+    .movieName{
+    text-align: center;
+    }
+    .btn1{
+    padding: 1em 2em;
+    border: 0.1em solid black;
+    margin: 1em 2em 0;
+    border-radius: 0.15em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: black;
+    text-align: center;
+    transition: all 0.5s;
+    }
+
+    .btn1:hover{
+    color: white;
+    background-color: royalblue
+    }
+    .btnzzz{
+        text-align: center;
+    }
+    .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px;
+    }
+
+    .column1 {
+    float: left;
+    width: 33%;
+    padding: 10px;
+    }
+    .column2 {
+    float: left;
+    width: 33%;
+    padding: 10px;
+    }
+
+    .column3 {
+    float: left;
+    width: 33%;
+    padding: 10px;
+    }
+
+    .column4 {
+    float: left;
+    width: 16%;
+    padding: 10px;
+    }
+
+    .column5 {
+    float: left;
+    width: 16%;
+    padding: 10px;
+    }
+
+    .column6 {
+    float: left;
+    width: 16%;
+    padding: 10px;
+    }
+
+    .column7 {
+    float: left;
+    width: 16%;
+    padding: 10px;
+    }
+
+    .column8 {
+    float: left;
+    width: 16%;
+    padding: 10px;
+    }
+
+    .column9 {
+    float: left;
+    width: 16%;
+    padding: 10px;
+    }
+
+    .columnTEST {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 10px;
+    }
+
+    .columnVDO {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    }
+
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+    .text1{
+        color: crimson;
+        text-align: center;
+        font-size: 1.25rem;
+    }
+
+    .text2{
+        color:dodgerblue;
+        text-align: center;
+        font-size: 1.25rem;
+    }
+
+    .text3{
+        color: brown;
+        text-align: center;
+        font-size: 1.25rem;
+    }
+
+    .text4{
+        text-align: justify;
+        font-size: 1.25rem;
+    }
+    .poster{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    box-shadow: 10px 10px 5px #ccc;
+    }
+
+    .c4{
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    .vdo123{
+        box-shadow: 10px 10px 5px #ccc;
+        width: 560px;
+        height: 315px;
+    }
+
+    #display .column4{
+        background-color: #FCA593;
+    }
+
+    #display .column5{
+        background-color: #F87155
+    }
+
+    #display .column6{
+        background-color: #FCA593;
+    }
+
+    #display .column7{
+        background-color: #F87155
+    }
+
+    #display .column8{
+        background-color: #FCA593;
+    }
+
+    #display .column9{
+        background-color: #F87155
+    }
